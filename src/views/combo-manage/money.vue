@@ -1,0 +1,21 @@
+<template>
+  <div style="text-align: left; line-height: 2;">
+    <p>采购总额：{{ combo.goodPrice}}</p>
+    <p>赠送柜子：</p>
+    <div style="margin-left: 6%;" v-for="(item, index) in combo.machineList" :key="index">
+      <span>型号名称:{{ item.machineSpecName }}</span>
+      <span style="float: right;margin-right: 6px;">数量:{{ item.num }}</span>
+    </div>
+    <p v-if="combo.voucherName">赠送：{{ combo.voucherName }}代金券</p>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Money extends Vue {
+  @Prop()
+  combo: any;
+}
+</script>
